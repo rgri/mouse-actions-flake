@@ -2,16 +2,15 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "mouse-actions";
-  version = "0.4.4";
+  version = "v0.4.4";
 
   src = fetchFromGitHub {
     owner = "jersou";
     repo = pname;
     rev = version;
-    hash = lib.fakeHash;
+    hash = "sha256-02E4HrKIoBV3qZPVH6Tjz9Bv/mh5C8amO1Ilmd+YO5g=";
   };
-  cargoHash = lib.fakeHash;
-
+  cargoHash = "sha256-GRClGC6+3J/YW5jVh7iAb2idD6/PycG854XbBIkfB/c=";
   meta = with lib; {
     # TODO: better description
     description =
