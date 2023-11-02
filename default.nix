@@ -13,13 +13,10 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [ xorg.libX11 xorg.libXi xorg.libXtst libevdev ];
   nativeBuildInputs = [ pkg-config virtualgl ];
   meta = with lib; {
-    # TODO: better description
     description =
-      "A way to execute some commands from mouse events, a mix between Easystroke and Comiz edge commands";
-    homepage = "https://github.com/BurntSushi/ripgrep";
-    # TODO: license
-    license = licenses.unlicense;
-    # TODO: how to add myself as a maintainer? (rgri)
+      "It execute some command from mouse events such as clicks/wheel on the side/corners of the screen, or drawing shapes";
+    homepage = "https://github.com/jersou/";
+    license = licenses.mit;
     maintainers = [ ];
   };
 }
