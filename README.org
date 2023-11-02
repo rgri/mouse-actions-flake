@@ -1,0 +1,23 @@
+#+title: Nix Flake for running [[https://github.com/jersou/mouse-actions/][mouse-actions]]
+See [[https://github.com/jersou/mouse-actions/#requirement-][here]] for more info. Importantly,
+#+begin_quote
+To use the main feature "grab event", you need to have the read&write permission on ~/dev/input/event*~
+#+end_quote
+This means being in the ~plugdev~ and(?) ~input~ groups.
+
+Currently this is for the non-gui version. To use the gui version, just pass it ~show-gui~.
+* Installation
+:PROPERTIES:
+:ID:       17ca7664-55a0-452c-8a3a-d78a2c3c99f0
+:END:
+#+begin_src bash
+nix profile install github:rgri/nix-mouse-actions
+#+end_src
+or however else you usually install binaries from flakes.
+* Running ephemerally
+:PROPERTIES:
+:ID:       f0bc8d70-b389-4074-ad97-4446d4b684b0
+:END:
+#+begin_src bash
+nix run github:rgri/mouse-actions
+#+end_src
