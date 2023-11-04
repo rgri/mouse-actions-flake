@@ -1,4 +1,13 @@
-{ lib, fetchFromGitHub, rustPlatform, pkg-config, virtualgl, xorg, libevdev }:
+{ lib
+, fetchFromGitHub
+, rustPlatform
+, pkg-config
+, libX11
+, libXi
+, libXtst
+, libevdev
+}:
+
 rustPlatform.buildRustPackage rec {
   pname = "mouse-actions";
   version = "0.4.4";
@@ -6,17 +15,28 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "jersou";
     repo = "mouse-actions";
-    rev = "v0.4.4";
+    rev = "v${version}";
     hash = "sha256-02E4HrKIoBV3qZPVH6Tjz9Bv/mh5C8amO1Ilmd+YO5g=";
   };
-  cargoHash = "sha256-GRClGC6+3J/YW5jVh7iAb2idD6/PycG854XbBIkfB/c=";
-  buildInputs = [ xorg.libX11 xorg.libXi xorg.libXtst libevdev ];
-  nativeBuildInputs = [ pkg-config virtualgl ];
+
+  cargoHash = "sha256-5SUVZlrXIPtlu9KBzucZDCp5t5t8Z4/Nfht2Pw5agVI=";
+
+  buildInputs = [
+    libX11
+    libXi
+    libXtst
+    libevdev
+  ];
+
+  nativeBuildInputs = [
+    pkg-config
+  ];
+
   meta = with lib; {
-    description =
-      "It execute some command from mouse events such as clicks/wheel on the side/corners of the screen, or drawing shapes";
-    homepage = "https://github.com/jersou/";
+    description = "Execute commands from mouse events such as clicks/wheel on the side/corners of the screen, or drawing shapes";
+    homepage = "https://github.com/jersou/mouse-actions";
     license = licenses.mit;
-    maintainers = [ ];
+    maintainers = with maintainers; [ rgri ];
+    mainProgram = "mouse-actions";
   };
 }
